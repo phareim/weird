@@ -1,5 +1,3 @@
-// BogoSort Algorithm in JavaScript
-
 // Function to check if array is sorted
 function isSorted(arr) {
 	for (let i = 0; i < arr.length - 1; i++) {
@@ -18,12 +16,21 @@ function shuffle(arr) {
 	}
 }
 
-// BogoSort function
+// Recursive BogoSort function
 function bogoSort(arr) {
-	while (!isSorted(arr)) {
-		shuffle(arr);
+	if (arr.length <= 1) {
+		return arr;
 	}
-	return arr;
+
+	let min = Math.min(...arr);
+	let max = Math.max(...arr);
+
+	if (arr[0] === min && arr[arr.length - 1] === max) {
+		return [min, ...bogoSort(arr.slice(1, -1)), max];
+	} else {
+		shuffle(arr);
+		return bogoSort(arr);
+	}
 }
 
 // Generate an array of the specified length with random elements
