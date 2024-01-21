@@ -31,6 +31,12 @@ function bogoSort(arr) {
 	if (arr[0] === min && arr[arr.length - 1] === max) {
 		let sortedSubArray = trampoline(bogoSort)(arr.slice(1, -1));
 		return [min, ...sortedSubArray, max];
+	} else if (arr[0] === min) {
+		let sortedSubArray = trampoline(bogoSort)(arr.slice(1));
+		return [min, ...sortedSubArray];
+	} else if (arr[arr.length - 1] === max) {
+		let sortedSubArray = trampoline(bogoSort)(arr.slice(0, -1));
+		return [...sortedSubArray, max];
 	} else {
 		shuffle(arr);
 		return () => bogoSort(arr);
