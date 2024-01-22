@@ -4,6 +4,7 @@ function shuffle(arr) {
 		let j = Math.floor(Math.random() * (i + 1));
 		[arr[i], arr[j]] = [arr[j], arr[i]];
 	}
+	return arr;
 }
 
 // Trampoline function to manage recursion
@@ -38,15 +39,14 @@ function bogoSort(arr) {
 		let sortedSubArray = trampoline(bogoSort)(arr.slice(0, -1));
 		return [...sortedSubArray, max];
 	} else {
-		shuffle(arr);
-		return () => bogoSort(arr);
+		return () => bogoSort(shuffle(arr));
 	}
 }
 
 // Generate an array of the specified length with random elements
 let length = process.argv[2] || 5;
 let maxSize = process.argv[3] || 10;
-let arr = Array.from({ length }, () => Math.floor(Math.random() * maxSize));
+const arr = Array.from({ length }, () => Math.floor(Math.random() * maxSize));
 
 console.log("Original Array: ", arr);
 console.time("BogoSort Time");
