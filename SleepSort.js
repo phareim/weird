@@ -3,7 +3,7 @@ function sleepSort(arr) {
         // Setter en timeout basert på verdien
         setTimeout(() => {
             console.log(value);
-        }, value * 100); // Multiplikasjonsfaktoren kan justeres
+        }, value * 10); // Multiplikasjonsfaktoren kan justeres
     });
 }
 
