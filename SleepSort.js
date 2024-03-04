@@ -1,14 +1,18 @@
 function sleepSort(arr) {
-    arr.forEach(value => {
+    arr.forEach((value, index) => {
         // Setter en timeout basert på verdien
         setTimeout(() => {
-            console.log(value);
-        }, value * 10); // Multiplikasjonsfaktoren kan justeres
+            process.stdout.write(value + (index === arr.length - 1 ? ' ]\n' : ' '));
+        }, value * 1000); // Multiplikasjonsfaktoren kan justeres
     });
 }
 
 // Eksempel på bruk
-let arr = [3, 1, 4, 1, 5, 9, 2, 6];
+// Generate an array of the specified length with random elements
+const length = process.argv[2] || 5;
+const maxSize = process.argv[3] || 10;
+const arr = Array.from({ length }, () => Math.floor(Math.random() * maxSize));
+
 console.log("Original Array: ", arr);
-console.log("Sorted Array: ");
+process.stdout.write("Sorted Array: ");
 sleepSort(arr);
