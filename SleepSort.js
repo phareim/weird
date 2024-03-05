@@ -1,8 +1,11 @@
+const sorted = [];
+
 function sleepSort(arr) {
-    arr.forEach((value, index) => {
+    arr.forEach((value) => {
         // Setter en timeout basert på verdien
         setTimeout(() => {
-            process.stdout.write(value + (index === arr.length - 1 ? ' ]\n' : ' '));
+            console.log(value + '\r');
+            sorted.push(value);
         }, value * 1000); // Multiplikasjonsfaktoren kan justeres
     });
 }
@@ -16,3 +19,4 @@ const arr = Array.from({ length }, () => Math.floor(Math.random() * maxSize));
 console.log("Original Array: ", arr);
 process.stdout.write("Sorted Array: ");
 sleepSort(arr);
+console.log("Sorting...");
