@@ -18,7 +18,16 @@ const deleteEditedFiles = (dirPath) => {
 				if (entry.name.includes("-redigert")) {
 					fs.unlink(fullPath, err => {
 						if (err) {
-							console.error('Error deleting file:', err);
+							console.error('Error deleting file (-redigert):', err);
+						} else {
+							console.log(`Deleted: ${fullPath}`);
+						}
+					});
+				}
+				if (entry.name.includes("(1).")) {
+					fs.unlink(fullPath, err => {
+						if (err) {
+							console.error('Error deleting file (1):', err);
 						} else {
 							console.log(`Deleted: ${fullPath}`);
 						}
