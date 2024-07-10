@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "openai": "^4.52.4"
+  },
+  "name": "weird",
+  "version": "0.0.1",
+  "description": "Random programming",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phareim/weird.git"
+  },
+  "keywords": [
+    "weird",
+    "testing"
+  ],
+  "author": "Petter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phareim/weird/issues"
+  },
+  "homepage": "https://github.com/phareim/weird#readme"
+}
