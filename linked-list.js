@@ -1,9 +1,7 @@
-let listStart;
-
 function createList(count) {
-    var list = { value: 0, next: null };
-    for (var i = 1; i < count; i++) {
-        list = { value: i, next: list };
+    var list = null;
+    for (var i = 1; i <= count; i++) {
+        list = { value: "node "+i+".", next: list };
     }
     return list;
 }
@@ -16,18 +14,14 @@ function printList(list) {
     }
 }
 
-function reverseNode(node, reversePointer){
+function reverse(node, reversePointer = null){
     let n2 = node;
     let n3 = node.next;
     node.next = reversePointer;
-    if(n3 === null){
+    if(!n3)
         return n2;
-    }
-    return reverseNode(n3, n2);
-}
-
-function reverseList(list) {    
-    return reverseNode(list,null);
+    else
+        return reverse(n3, n2);
 }
 
 let count = process.argv[2] || 10;
@@ -36,4 +30,4 @@ let l = createList(count);
 console.log("\n\nLIST:\n");
 printList(l);
 console.log("\n\nREVERSE:\n");
-printList(reverseList(l));
+printList(reverse(l));
