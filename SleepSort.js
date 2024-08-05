@@ -6,7 +6,7 @@ function sleepSort(arr) {
         setTimeout(() => {
             console.log(value + '\r');
             sorted.push(value);
-        }, value * 1000); // Multiplikasjonsfaktoren kan justeres
+        }, value*100); // Multiplikasjonsfaktoren kan justeres
     });
 }
 
