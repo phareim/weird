@@ -7,7 +7,7 @@ function createList(count) {
 }
 
 function printList(list, name = "LIST", count = 10) {
-    console.log('\x1b[38;2;0;255;0m',`███ ${name}:`);
+    console.log('\x1b[38;2;0;255;0m',`\r█ ${name}:`);
     var current = list;
     var index = 0;
     while (current) {
@@ -33,5 +33,5 @@ function reverse(node, reversePointer = null){
 let count = process.argv[2] || 10;
 let l = createList(count);
 
-printList(l, "LIST", count);
+printList(l);
 printList(reverse(l), "REVERSE", count);
