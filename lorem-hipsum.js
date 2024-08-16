@@ -31,4 +31,4 @@ async function main() {
     console.log(result);
 }
 
-module.exports = {hipsum, main}
+module.exports = {hipsum}
