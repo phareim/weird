@@ -27,12 +27,12 @@ function bogoSort(arr) {
 }
 
 // Generate an array of the specified length with random elements
-let length = process.argv[2] || 5;
+let length = process.argv[2] || 8;
 let maxSize = process.argv[3] || 10;
 let arr = Array.from({ length }, () => Math.floor(Math.random() * maxSize));
 
-console.log("Original Array: ", arr);
+console.log("Original Array: \n", arr);
 console.time("BogoSort Time");
 let sortedArr = bogoSort(arr);
 console.timeEnd("BogoSort Time");
-console.log("Sorted Array: ", sortedArr);
+console.log("Sorted Array: \n", sortedArr);
