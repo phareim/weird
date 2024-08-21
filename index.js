@@ -307,7 +307,7 @@ const Fonts =
                 console.dir(err);
                 return;
             }
-            console.log('\x1b[34m%s\x1b[0m', data);
+            console.log('\x1b[33m%s\x1b[0m', data);
         });
     }
     
