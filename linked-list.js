@@ -33,5 +33,5 @@ function reverse(node, reversePointer = null){
 let count = process.argv[2] || 10;
 let l = createList(count);
 
-printList(l);
+printList(l, "Original");
 printList(reverse(l), "REVERSE", count);
