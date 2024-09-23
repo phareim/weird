@@ -27,4 +27,4 @@ Miscellaneous:
 - test/: Directory for test files, including foo.txt and 13.json4.
 
 
-> This repository seems to be a playground for experimenting with different algorithms and APIs.
+> Dette er en lekestue
