@@ -1,12 +1,16 @@
 {
   "dependencies": {
+    "commander": "^11.1.0",
     "figlet": "^1.7.0",
     "openai": "^4.52.4"
   },
   "name": "weird",
   "version": "0.0.1",
   "description": "Random programming",
-  "main": "index.js",
+  "main": "src/cli.js",
+  "bin": {
+    "weird": "src/cli.js"
+  },
   "directories": {
     "test": "test"
   },
