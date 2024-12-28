@@ -26,7 +26,6 @@ function cocktailShakerSort(arr) {
 	return arr;
 }
 
-// Generate an array of the specified length with random elements
 let length = process.argv[2] || 5;
 let maxSize = process.argv[3] || 10;
 let arr = Array.from({ length }, () => Math.floor(Math.random() * maxSize));
