@@ -1,4 +1,4 @@
-# THIS IS A PLAYGROUND
+# Dette er en lekestue
 
 This repository appears to be a collection of various JavaScript sorting algorithms, utility scripts, and a few other miscellaneous scripts. Here's a summary of the contents:
 
@@ -25,6 +25,3 @@ Miscellaneous:
 
 - index.js: Contains a console log with stylized text.
 - test/: Directory for test files, including foo.txt and 13.json4.
-
-
-> Dette er en lekestue
