@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Weather Card</title>
+    <style>
+        /* Center the content and set a dark background */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Style the weather card */
+        #weather-card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #333;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Raindrop styles */
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: #ccc;
+            animation: fall 1s linear infinite;
+        }
+
+        /* Animation for falling elements (rain and snow) */
+        @keyframes fall {
+            0% { transform: translateY(-10px); }
+            100% { transform: translateY(200px); }
+        }
+
+        /* Snowflake styles */
+        .snowflake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: fall 3s linear infinite;
+        }
+
+        /* Cloud styles for wind */
+        .cloud {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            background: #aaa;
+            border-radius: 50%;
+            animation: move 5s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(300px); }
+        }
+
+        /* Sun styles */
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background: yellow;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        /* Button container styling */
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #777;
+        }
+    </style>
+</head>
+<body>
+    <!-- Weather card container -->
+    <div id="weather-card"></div>
+
+    <!-- Buttons to switch weather conditions -->
+    <div class="buttons">
+        <button onclick="setWeather('wind')">Wind</button>
+        <button onclick="setWeather('rain')">Rain</button>
+        <button onclick="setWeather('sun')">Sun</button>
+        <button onclick="setWeather('snow')">Snow</button>
+    </div>
+
+    <script>
+        // Get the weather card element
+        const weatherCard = document.getElementById('weather-card');
+
+        // Function to switch weather conditions
+        function setWeather(condition) {
+            // Clear existing content
+            weatherCard.innerHTML = '';
+
+            if (condition === 'rain') {
+                // Create 50 raindrops
+                for (let i = 0; i < 50; i++) {
+                    const raindrop = document.createElement('div');
+                    raindrop.className = 'raindrop';
+                    raindrop.style.left = Math.random() * 100 + '%';
+                    raindrop.style.animationDuration = (Math.random() * 0.5 + 0.5) + 's';
+                    raindrop.style.animationDelay = Math.random() * 2 + 's';
+                    weatherCard.appendChild(raindrop);
+                }
+            } else if (condition === 'snow') {
+                // Create 30 snowflakes
+                for (let i = 0; i < 30; i++) {
+                    const snowflake = document.createElement('div');
+                    snowflake.className = 'snowflake';
+                    const size = Math.random() * 5 + 2;
+                    snowflake.style.width = size + 'px';
+                    snowflake.style.height = size + 'px';
+                    snowflake.style.left = Math.random() * 100 + '%';
+                    snowflake.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    snowflake.style.animationDelay = Math.random() * 5 + 's';
+                    weatherCard.appendChild(snowflake);
+                }
+            } else if (condition === 'wind') {
+                // Create 5 clouds
+                for (let i = 0; i < 5; i++) {
+                    const cloud = document.createElement('div');
+                    cloud.className = 'cloud';
+                    cloud.style.top = Math.random() * 80 + '%';
+                    cloud.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                    cloud.style.animationDelay = Math.random() * 5 + 's';
+                    weatherCard.appendChild(cloud);
+                }
+            } else if (condition === 'sun') {
+                // Create sun
+                const sun = document.createElement('div');
+                sun.className = 'sun';
+                weatherCard.appendChild(sun);
+            }
+        }
+
+        // Set default weather condition on page load
+        setWeather('sun');
+    </script>
+</body>
+</html>
